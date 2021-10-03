@@ -63,16 +63,16 @@ public class LocalTest {
     @DisplayName("Teste correto set/get telefoneDefesaCivil")
     @Order(6)
     @ParameterizedTest
-    @ValueSource(strings = {"16-99999-8888", "16-999998888"})
-    public void testSetGetTelefoneDefesaCivil(String telefoneDefesaCivil) {
-        local.setCaracteristicas(telefoneDefesaCivil);
-        assertEquals(telefoneDefesaCivil, local.getCaracteristicas());
+    @ValueSource(strings = {"16-99999-8888", "16-99999-8888"})
+    public void testSetGetTelefoneDefesaCivil(String telefoneDefesaCivil) throws Exception {
+        local.setTelefoneDefesaCivil(telefoneDefesaCivil);
+        assertEquals(telefoneDefesaCivil, local.getTelefoneDefesaCivil());
     }
 
     @DisplayName("Teste incorreto set/get telefoneDefesaCivil")
     @Order(7)
     @ParameterizedTest
-    @ValueSource(strings = {"16999998888", "99999-4444", "16-9999-4444", "12", ""})
+    @ValueSource(strings = {"16999998888", "99999-4444", "16-99994444", "12", ""})
     public void testSetGetIncorretoTelefoneDefesaCivil(String telefoneDefesaCivil) {
         assertThrows(Exception.class, () -> local.setTelefoneDefesaCivil(telefoneDefesaCivil));
     }

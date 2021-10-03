@@ -1,7 +1,6 @@
 package domain;
 
 import java.util.Objects;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Local {
@@ -14,12 +13,12 @@ public class Local {
     public Local() {
     }
 
-    public Local(String cepPontoCentral, Integer raio, Integer populacao, String caracteristicas, String telefoneDefesaCivil) {
-        this.cepPontoCentral = cepPontoCentral;
+    public Local(String cepPontoCentral, Integer raio, Integer populacao, String caracteristicas, String telefoneDefesaCivil) throws Exception {
+        setCepPontoCentral(cepPontoCentral);
         this.raio = raio;
         this.populacao = populacao;
         this.caracteristicas = caracteristicas;
-        this.telefoneDefesaCivil = telefoneDefesaCivil;
+        setTelefoneDefesaCivil(telefoneDefesaCivil);
     }
 
     public String getCepPontoCentral() {
@@ -62,7 +61,7 @@ public class Local {
     }
 
     public void setTelefoneDefesaCivil(String telefoneDefesaCivil) throws Exception {
-        if (!validaTelegoneDefesaCivil(telefoneDefesaCivil)) {
+        if (!validaTelefoneDefesaCivil(telefoneDefesaCivil)) {
             throw new Exception("Telefone inválido!");
         }
         this.telefoneDefesaCivil = telefoneDefesaCivil;
@@ -74,8 +73,8 @@ public class Local {
         return pattern.matcher(cep).matches();
     }
 
-    private Boolean validaTelegoneDefesaCivil(String telefoneDefesaCivil) {
-        String regex = "^[0-9]{2}-([0-9]{8}|[0-9]{9})";
+    private Boolean validaTelefoneDefesaCivil(String telefoneDefesaCivil) {
+        String regex = "^[0-9]{2}-([0-9]{5}|[0-9]{4})-([0-9]{4})";
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(telefoneDefesaCivil).matches();
     }

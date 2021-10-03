@@ -121,13 +121,13 @@ public class Main {
 
     }
 
-    private static void excluirPraga(){
+    private static void excluirPraga() throws Exception {
         System.out.println("Código da praga que deseja excluir: ");
         String codigo = scanner.next();
         pragaDAO.excluirPraga(codigo);
     }
 
-    private static void listarUmaPraga(){
+    private static void listarUmaPraga() throws Exception {
         System.out.println("Código do praga que deseja listar: ");
         String codigo = scanner.next();
         Praga praga = pragaDAO.getPraga(codigo);
@@ -174,7 +174,7 @@ public class Main {
         System.out.println("_________ Fim da Lista de locais _________");
     }
 
-    private static void listarUmLocal() {
+    private static void listarUmLocal() throws Exception {
         System.out.println("CEP do ponto central que deseja listar: ");
         String cep = scanner.next();
         Local local = localDAO.getLocal(cep);
@@ -184,7 +184,7 @@ public class Main {
         exibirInformacoesLocal(local);
     }
 
-    private static void excluirLocal() {
+    private static void excluirLocal() throws Exception {
         System.out.println("CEP de um local que deseja excluir:");
         String cep = scanner.next();
         localDAO.excluirLocal(cep);

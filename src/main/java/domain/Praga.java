@@ -66,7 +66,11 @@ public class Praga {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Praga praga = (Praga) o;
-        return Objects.equals(codigo, praga.codigo) && Objects.equals(nome, praga.nome) && Objects.equals(doencasTransmitidas, praga.doencasTransmitidas) && Objects.equals(tempoDeVida, praga.tempoDeVida) && Objects.equals(modosCombate, praga.modosCombate);
+        return codigo.equals(praga.codigo) &&
+                Objects.equals(nome, praga.nome) &&
+                Objects.equals(doencasTransmitidas, praga.doencasTransmitidas) &&
+                Objects.equals(tempoDeVida, praga.tempoDeVida) &&
+                Objects.equals(modosCombate, praga.modosCombate);
     }
 
     @Override

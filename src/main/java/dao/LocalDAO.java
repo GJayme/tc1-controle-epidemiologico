@@ -13,46 +13,41 @@ public class LocalDAO {
         locais = new LinkedHashMap<>();
     }
 
-    public void inserirLocal(Local local) {
+    public void inserirLocal(Local local) throws Exception {
         if (locais.containsValue(local)) {
-            System.out.println("Local já cadastrado em nosso sistema. Local: " + local);
-            return;
+            throw new Exception("Local já cadastrado em nosso sistema. Local: " + local);
         }
         locais.put(local.getCepPontoCentral(), local);
         System.out.println("Local inserido com sucesso!");
     }
 
-    public void alterarLocal(Local local) {
-        if (!locais.containsValue(local)) {
-            System.out.println("Local não encontrado para efetuar atualização. Local: " + local);
-            return;
+    public void alterarLocal(Local local) throws Exception {
+        if (!locais.containsKey(local.getCepPontoCentral())) {
+            throw new Exception("Local não encontrado para efetuar atualização. Local: " + local);
         }
         locais.replace(local.getCepPontoCentral(), local);
         System.out.println("Local alterado com sucesso!");
     }
 
-    public void excluirLocal(Local local) {
+    public void excluirLocal(Local local) throws Exception {
         if (!locais.containsValue(local)) {
-            System.out.println("Local não encontrado para efetuar deleção. Local: " + local);
-            return;
+            throw new Exception("Local não encontrado para efetuar deleção. Local: " + local);
         }
         locais.remove(local);
         System.out.println("Local removido com sucesso!");
     }
 
-    public void excluirLocal(String cepPontoCentral) {
+    public void excluirLocal(String cepPontoCentral) throws Exception {
         if (!locais.containsKey(cepPontoCentral)) {
-            System.out.println("Local não encontrado para efetuar deleção. CEP: " + cepPontoCentral);
-            return;
+            throw new Exception("Local não encontrado para efetuar deleção. CEP: " + cepPontoCentral);
         }
         locais.remove(cepPontoCentral);
         System.out.println("Local removido com sucesso!");
     }
 
-    public Local getLocal(String cepPontoCentral) {
+    public Local getLocal(String cepPontoCentral) throws Exception {
         if (!locais.containsKey(cepPontoCentral)) {
-            System.out.println("Local não encontrado. CEP: " + cepPontoCentral);
-            return null;
+            throw new Exception("Local não encontrado. CEP: " + cepPontoCentral);
         }
 
         return locais.get(cepPontoCentral);
