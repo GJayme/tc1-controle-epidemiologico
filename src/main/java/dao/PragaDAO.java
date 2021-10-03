@@ -13,19 +13,17 @@ public class PragaDAO {
         pragas = new LinkedHashMap<>();
     }
 
-    public void inserirPraga(Praga praga) {
+    public void inserirPraga(Praga praga) throws Exception {
         if (pragas.containsValue(praga)) {
-            System.out.println("Praga já cadastrada em nosso sistema. Praga: " + praga);
-            return;
+            throw new Exception("Praga já cadastrada em nosso sistema. Praga: " + praga);
         }
         pragas.put(praga.getCodigo(), praga);
         System.out.println("Praga inserida com sucesso!");
     }
 
-    public void alterarPraga(Praga praga) {
+    public void alterarPraga(Praga praga) throws Exception {
         if (!pragas.containsValue(praga)) {
-            System.out.println("Praga não encontrada para efetuar atualização. Praga: " + praga);
-            return;
+            throw new Exception("Praga não encontrada para efetuar atualização. Praga: " + praga);
         }
         pragas.replace(praga.getCodigo(), praga);
         System.out.println("Praga alterada com sucesso!");

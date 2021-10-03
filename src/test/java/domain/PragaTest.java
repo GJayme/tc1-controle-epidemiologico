@@ -69,6 +69,4 @@ public class PragaTest {
         praga.setModosCombate(modosCombate02);
         assertEquals(modosCombate02, praga.getModosCombate());
     }
-
-
 }

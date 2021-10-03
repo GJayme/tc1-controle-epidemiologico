@@ -64,7 +64,7 @@ public class Main {
         }
     }
 
-    private static void inserirPraga(){
+    private static void inserirPraga() throws Exception {
         Boolean maisDoencas = true;
         Boolean maisModos = true;
         Praga praga = new Praga();
