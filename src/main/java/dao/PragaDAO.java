@@ -22,35 +22,32 @@ public class PragaDAO {
     }
 
     public void alterarPraga(Praga praga) throws Exception {
-        if (!pragas.containsValue(praga)) {
+        if (!pragas.containsKey(praga.getCodigo())) {
             throw new Exception("Praga não encontrada para efetuar atualização. Praga: " + praga);
         }
         pragas.replace(praga.getCodigo(), praga);
         System.out.println("Praga alterada com sucesso!");
     }
 
-    public void excluirPraga(Praga praga) {
+    public void excluirPraga(Praga praga) throws Exception {
         if (!pragas.containsValue(praga)) {
-            System.out.println("Praga não encontrada para efetuar deleção. Praga: " + praga);
-            return;
+            throw new Exception("Praga não encontrada para efetuar deleção. Praga: " + praga);
         }
         pragas.remove(praga);
         System.out.println("Praga removida com sucesso!");
     }
 
-    public void excluirPraga(String codigo) {
+    public void excluirPraga(String codigo) throws Exception {
         if (!pragas.containsKey(codigo)) {
-            System.out.println("Praga não encontrada para efetuar deleção. Código: " + codigo);
-            return;
+            throw new Exception("Praga não encontrada para efetuar deleção. Código: " + codigo);
         }
         pragas.remove(codigo);
         System.out.println("Praga removida com sucesso!");
     }
 
-    public Praga getPraga(String codigo) {
+    public Praga getPraga(String codigo) throws Exception {
         if (!pragas.containsKey(codigo)) {
-            System.out.println("Praga não encontrada. Código: " + codigo);
-            return null;
+            throw new Exception("Praga não encontrada. Código: " + codigo);
         }
 
         return pragas.get(codigo);
