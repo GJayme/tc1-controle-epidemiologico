@@ -12,7 +12,7 @@ public class Main {
     private static LocalDAO localDAO;
     private static PragaDAO pragaDAO;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         scanner = new Scanner(System.in);
         localDAO = new LocalDAO();
         pragaDAO = new PragaDAO();
@@ -118,7 +118,7 @@ public class Main {
     }
 
     private static void alterarPraga(){
-        
+
     }
 
     private static void excluirPraga(){
@@ -190,7 +190,7 @@ public class Main {
         localDAO.excluirLocal(cep);
     }
 
-    private static void alterarLocal() {
+    private static void alterarLocal() throws Exception {
         System.out.println("CEP de um local que deseja alterar: ");
         String cep = scanner.next();
         Local local = localDAO.getLocal(cep);
@@ -217,7 +217,7 @@ public class Main {
         localDAO.alterarLocal(local2);
     }
 
-    private static void inserirLocal() {
+    private static void inserirLocal() throws Exception {
         Local local = new Local();
         System.out.println("INSERIR LOCAL");
 

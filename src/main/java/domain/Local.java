@@ -1,6 +1,8 @@
 package domain;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Local {
     private String cepPontoCentral; //chave primaria
@@ -24,7 +26,10 @@ public class Local {
         return cepPontoCentral;
     }
 
-    public void setCepPontoCentral(String cepPontoCentral) {
+    public void setCepPontoCentral(String cepPontoCentral) throws Exception{
+        if (!validaCep(cepPontoCentral)) {
+            throw new Exception("CEP inválido!");
+        }
         this.cepPontoCentral = cepPontoCentral;
     }
 
@@ -56,8 +61,23 @@ public class Local {
         return telefoneDefesaCivil;
     }
 
-    public void setTelefoneDefesaCivil(String telefoneDefesaCivil) {
+    public void setTelefoneDefesaCivil(String telefoneDefesaCivil) throws Exception {
+        if (!validaTelegoneDefesaCivil(telefoneDefesaCivil)) {
+            throw new Exception("Telefone inválido!");
+        }
         this.telefoneDefesaCivil = telefoneDefesaCivil;
+    }
+
+    private Boolean validaCep(String cep) {
+        String regex = "[0-9]{5}-[0-9]{3}";
+        Pattern pattern = Pattern.compile(regex);
+        return pattern.matcher(cep).matches();
+    }
+
+    private Boolean validaTelegoneDefesaCivil(String telefoneDefesaCivil) {
+        String regex = "^[0-9]{2}-([0-9]{8}|[0-9]{9})";
+        Pattern pattern = Pattern.compile(regex);
+        return pattern.matcher(telefoneDefesaCivil).matches();
     }
 
     @Override
