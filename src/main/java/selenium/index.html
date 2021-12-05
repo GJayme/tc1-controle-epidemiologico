@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Controle Epidemiológico</title>
+</head>
+<body>
+
+<h1>Informações sobre a Praga:</h1>
+    <form action="">
+        <div>
+            <label for="praga-codigo">Código:</label>
+            <input type="text" id="praga-codigo" name="praga-codigo">
+        </div>
+        <div>
+            <label for="praga-nome">Nome:</label>
+            <input type="text" id="praga-nome" name="praga-nome">
+        </div>
+        <div>
+            <label>Doenças transmitidas:</label>
+            <input type="checkbox" name="doenca-check" id="Doença A"> Doença A
+            <input type="checkbox" name="doenca-check" id="Doença B"> Doença B
+            <input type="checkbox" name="doenca-check" id="Doença C"> Doença C
+        </div>
+        <div>
+            <label for="praga-tempo-de_vida">Tempo de vida:</label>
+            <input type="number" id="praga-tempo-de_vida" name="praga-tempo-de_vida">
+        </div>
+        <div>
+            <label>Modos de combate:</label>
+            <input type="checkbox" name="combate-check" id="Modo A"> Modo A
+            <input type="checkbox" name="combate-check" id="Modo B"> Modo B
+            <input type="checkbox" name="combate-check" id="Modo C"> Modo C
+        </div>
+        <div>
+            <button type="submit">Registrar praga</button>
+        </div>
+    </form>
+<hr/>
+
+<h1>Informações sobre o local:</h1>
+<form action="">
+    <div>
+        <label for="cep-local">CEP Ponto central:</label>
+        <input type="text" id="cep-local" name="cep-local">
+    </div>
+    <div>
+        <label for="raio">Raio:</label>
+        <input type="number" id="raio" name="raio">
+    </div>
+    <div>
+        <label for="">População</label>
+        <select name="" id="">
+            <option value="populacao1">10.000</option>
+            <option value="populacao2">20.000</option>
+            <option value="populacao3">30.000</option>
+            <option value="populacao4">40.000</option>
+            <option value="populacao5">50.000</option>
+            <option value="populacao6">100.000</option>
+            <option value="populacao7">500.000</option>
+            <option value="populacao8">1.000.000</option>
+        </select>
+    </div>
+    <div>
+        <label for="caracteristicas">Caracteristicas:</label>
+        <input type="text" id="caracteristicas" name="caracteristicas">
+    </div>
+    <div>
+        <label for="telefone">Telefone defesa civil:</label>
+        <input type="text" name="telefone" id="telefone">
+    </div>
+    <div>
+        <button type="submit">Registrar local</button>
+    </div>
+</form>
+
+<hr>
+<h1>Links:</h1>
+<a href="https://www.google.com.br/">Google</a>
+
+</body>
+</html>
